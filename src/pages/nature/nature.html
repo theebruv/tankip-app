@@ -1,0 +1,53 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Nature and Places</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+  <ion-card *ngFor="let post of posts">
+
+    <ion-item>
+      <ion-avatar item-left>
+        <img src="{{post.author.avatar_URL}}">
+      </ion-avatar>
+      <h2>{{post.author.first_name}} {{post.author.last_name}} (@r_tankip)</h2>
+    </ion-item>
+
+    <img src="{{post.featured_image}}">
+
+    <ion-card-content>
+
+    </ion-card-content>
+    <button ion-button clear full>Share Via</button>
+    <ion-row>
+      
+      <ion-col>
+        <button ion-button icon-left clear (click)="facebookShare(post.featured_image)">
+          <ion-icon name="logo-facebook" ></ion-icon>
+        </button>
+      </ion-col>
+      <ion-col>
+        <button ion-button icon-left clear (click)="twitterShare(post.featured_image)">
+          <ion-icon name="logo-twitter" ></ion-icon>
+        </button>
+      </ion-col>
+      <ion-col>
+        <button ion-button icon-left clear (click)="whatsappShare(post.featured_image)">
+          <ion-icon name="logo-whatsapp" ></ion-icon>
+        </button>
+      </ion-col>
+      <ion-col>
+        <button ion-button icon-left clear (click)="otherShare(post.featured_image)">
+          <ion-icon name="share"></ion-icon>
+        </button>
+      </ion-col>
+
+    </ion-row>
+
+  </ion-card>
+</ion-content>
